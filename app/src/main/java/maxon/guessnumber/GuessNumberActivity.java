@@ -22,6 +22,8 @@ public class GuessNumberActivity extends ActionBarActivity {
     private TextView[] numberTextViews;
     private EditText numberInput;
 
+    private Stopwatch stopwatch = new Stopwatch();
+
     public GuessNumberActivity() {
         nextNumbers();
     }
@@ -92,7 +94,7 @@ public class GuessNumberActivity extends ActionBarActivity {
                 return;
             }
             if (number == expression.getAt(6)) {
-                showWinDialog(10);
+                showWinDialog(((int) stopwatch.stop()));
                 nextNumbers();
             } else {
                 showWrongAnswerDialog();
@@ -141,5 +143,7 @@ public class GuessNumberActivity extends ActionBarActivity {
         } catch (Exception ex) {
             showErrDialog(ex);
         }
+
+        stopwatch.start();
     }
 }
