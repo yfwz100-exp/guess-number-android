@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hello</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="guess_number_title">Guess the next number...</string>
+    <string name="action_next_numbers">Next numbers</string>
+    <string name="action_about">About</string>
+    <string name="about_title">About</string>
+    <string name="about_message">Author: yfwz100</string>
+    <string name="error_title">Error</string>
+    <string name="error_message">Something went error.</string>
+    <string name="win_title">You win!</string>
+    <string name="win_message">You just got %d seconds to get the right answer.</string>
+    <string name="wrong_answer_title">Wrong Answer</string>
+    <string name="wrong_answer_message">The answer is wrong. Try again :-P .</string>
+
+</resources>
