@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * GuessNumberActivity Activity.
@@ -22,6 +21,10 @@ public class GuessNumberActivity extends ActionBarActivity {
     private Expression expression;
     private TextView[] numberTextViews;
     private EditText numberInput;
+
+    public GuessNumberActivity() {
+        nextNumbers();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +51,6 @@ public class GuessNumberActivity extends ActionBarActivity {
                 return false;
             }
         });
-
-        nextNumbers();
     }
 
     @Override
@@ -83,7 +84,7 @@ public class GuessNumberActivity extends ActionBarActivity {
 
     protected void guessNumber(View numberInput) {
         if (expression != null) {
-            int number = 0;
+            int number;
             try {
                 number = Integer.parseInt(((EditText) numberInput).getText().toString());
             } catch (NumberFormatException e) {
@@ -92,6 +93,7 @@ public class GuessNumberActivity extends ActionBarActivity {
             }
             if (number == expression.getAt(6)) {
                 showWinDialog(10);
+                nextNumbers();
             } else {
                 showWrongAnswerDialog();
             }
@@ -138,7 +140,6 @@ public class GuessNumberActivity extends ActionBarActivity {
             }
         } catch (Exception ex) {
             showErrDialog(ex);
-            return;
         }
     }
 }
