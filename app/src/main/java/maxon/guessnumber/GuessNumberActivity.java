@@ -94,7 +94,7 @@ public class GuessNumberActivity extends ActionBarActivity {
                 return;
             }
             if (number == expression.getAt(6)) {
-                showWinDialog(((int) stopwatch.stop()));
+                showWinDialog(((int) stopwatch.stop() / 1000));
                 nextNumbers();
             } else {
                 showWrongAnswerDialog();
