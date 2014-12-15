@@ -7,6 +7,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -137,6 +139,9 @@ public class GuessNumberActivity extends ActionBarActivity {
         try {
             for (int i = 0; i < numberTextViews.length; i++) {
                 numberTextViews[i].setText(String.valueOf(expression.getAt(i + 1)));
+
+                Animation animation = AnimationUtils.loadAnimation(this, R.anim.number_translation);
+                numberTextViews[i].startAnimation(animation);
             }
         } catch (Exception ex) {
             showErrDialog(ex);
