@@ -6,9 +6,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,10 +21,14 @@ import android.widget.TextView;
  */
 public class GuessNumberActivity extends ActionBarActivity {
 
-    private Expression expression;
+    // UI components.
     private TextView[] numberTextViews;
     private EditText numberInput;
+    private Button guessBtn;
 
+    // the expression to generate the number series.
+    private Expression expression;
+    // the stopwatch monitor.
     private Stopwatch stopwatch = new Stopwatch();
 
     @Override
@@ -48,6 +54,14 @@ public class GuessNumberActivity extends ActionBarActivity {
                     guessNumber();
                 }
                 return false;
+            }
+        });
+
+        guessBtn = ((Button) findViewById(R.id.guess_number_button));
+        guessBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                guessNumber();
             }
         });
 
@@ -87,7 +101,7 @@ public class GuessNumberActivity extends ActionBarActivity {
         if (expression != null) {
             int number;
             try {
-                number = Integer.parseInt(((EditText) numberInput).getText().toString());
+                number = Integer.parseInt(numberInput.getText().toString());
             } catch (NumberFormatException e) {
                 showErrDialog(e);
                 return;

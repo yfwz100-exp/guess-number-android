@@ -100,9 +100,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@+id/guess_number_button"
+        android:layout_toStartOf="@+id/guess_number_button"
         android:imeOptions="actionDone"
         android:inputType="numberSigned" />
+
+    <Button
+        android:id="@+id/guess_number_button"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/linearLayout"
+        android:text="@string/guess_number_button" />
 
 </RelativeLayout>
