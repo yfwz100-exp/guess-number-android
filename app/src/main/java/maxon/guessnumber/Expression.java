@@ -44,6 +44,11 @@ public class Expression {
         return new Expression();
     }
 
+    @Override
+    public String toString() {
+        return root.toString();
+    }
+
     public int getAt(int i) {
         variable.setValue(i);
         System.out.println(root);
@@ -189,12 +194,12 @@ public class Expression {
 
         @Override
         public String toString() {
-            StringBuilder builder = new StringBuilder("(");
+            StringBuilder builder = new StringBuilder("[");
             builder.append(nodes[0].toString());
             for (int i = 1; i < nodes.length; i++) {
                 builder.append('/').append(nodes[i].toString());
             }
-            builder.append(')');
+            builder.append(']');
             return builder.toString();
         }
     }

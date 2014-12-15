@@ -16,5 +16,7 @@
     <string name="wrong_answer_message">The answer is wrong. Try again :-P .</string>
     <string name="initial_number_placeholder">N</string>
     <string name="guess_number_button">Ok</string>
+    <string name="action_show_formula">Show formula</string>
+    <string name="show_formula_title">The formula...</string>
 
 </resources>

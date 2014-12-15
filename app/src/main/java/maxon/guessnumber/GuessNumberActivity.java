@@ -92,9 +92,18 @@ public class GuessNumberActivity extends ActionBarActivity {
             case R.id.action_next_numbers:
                 nextNumbers();
                 break;
+            case R.id.action_show_formula:
+                showFormula();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void showFormula() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.show_formula_title).setMessage(expression.toString());
+        builder.create().show();
     }
 
     protected void guessNumber() {
