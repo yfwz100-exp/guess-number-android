@@ -15,5 +15,6 @@
     <string name="win_message">You just got %d seconds to get the right answer.</string>
     <string name="wrong_answer_title">Wrong Answer</string>
     <string name="wrong_answer_message">The answer is wrong. Try again :-P .</string>
+    <string name="initial_number_placeholder">N</string>
 
 </resources>
