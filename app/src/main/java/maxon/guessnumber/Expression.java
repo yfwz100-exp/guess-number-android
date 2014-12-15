@@ -20,7 +20,7 @@ public class Expression {
         Random random = new Random();
         root = variable = new IntExprNode(1);
         for (int i = 0; i < number; i++) {
-            switch (random.nextInt(3)) {
+            switch (random.nextInt(5)) {
                 case 0:
                     root = new PlusExprNode(root, new IntExprNode(random.nextInt(10)));
                     break;
@@ -32,6 +32,10 @@ public class Expression {
                     break;
                 case 3:
                     root = new DivideExprNode(root, new IntExprNode(random.nextInt(10)+1));
+                    break;
+                case 4:
+                    root = new PowerExprNode(root, new IntExprNode(2));
+                    break;
             }
         }
     }
@@ -192,6 +196,22 @@ public class Expression {
             }
             builder.append(')');
             return builder.toString();
+        }
+    }
+
+    protected class PowerExprNode implements ExprNode {
+
+        private ExprNode a;
+        private ExprNode b;
+
+        public PowerExprNode(ExprNode a, ExprNode b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        @Override
+        public int compute() {
+            return ((int) Math.pow(a.compute(), b.compute()));
         }
     }
 
