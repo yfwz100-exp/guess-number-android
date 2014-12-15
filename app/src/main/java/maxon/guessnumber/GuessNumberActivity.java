@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
@@ -46,7 +45,7 @@ public class GuessNumberActivity extends ActionBarActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    guessNumber(numberInput);
+                    guessNumber();
                 }
                 return false;
             }
@@ -84,7 +83,7 @@ public class GuessNumberActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    protected void guessNumber(View numberInput) {
+    protected void guessNumber() {
         if (expression != null) {
             int number;
             try {
@@ -99,6 +98,7 @@ public class GuessNumberActivity extends ActionBarActivity {
             } else {
                 showWrongAnswerDialog();
             }
+            numberInput.setText("");
         } else {
             throw new RuntimeException("Unexpected null expression.");
         }
