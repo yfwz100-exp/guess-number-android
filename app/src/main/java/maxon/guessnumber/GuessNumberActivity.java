@@ -1,8 +1,8 @@
 package maxon.guessnumber;
 
 import android.app.AlertDialog;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,10 +23,6 @@ public class GuessNumberActivity extends ActionBarActivity {
     private EditText numberInput;
 
     private Stopwatch stopwatch = new Stopwatch();
-
-    public GuessNumberActivity() {
-        nextNumbers();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +49,8 @@ public class GuessNumberActivity extends ActionBarActivity {
                 return false;
             }
         });
+
+        nextNumbers();
     }
 
     @Override
@@ -138,7 +136,7 @@ public class GuessNumberActivity extends ActionBarActivity {
 
         try {
             for (int i = 0; i < numberTextViews.length; i++) {
-                numberTextViews[i].setText(String.valueOf(expression.getAt(i+1)));
+                numberTextViews[i].setText(String.valueOf(expression.getAt(i + 1)));
             }
         } catch (Exception ex) {
             showErrDialog(ex);
