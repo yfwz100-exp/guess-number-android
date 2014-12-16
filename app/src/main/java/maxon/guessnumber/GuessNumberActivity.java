@@ -1,5 +1,6 @@
 package maxon.guessnumber;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -151,7 +152,7 @@ public class GuessNumberActivity extends ActionBarActivity {
     private void showWrongAnswerDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.wrong_answer_title).setMessage(R.string.wrong_answer_message);
-        builder.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 numberInput.setText("");
@@ -160,9 +161,15 @@ public class GuessNumberActivity extends ActionBarActivity {
         builder.create().show();
     }
 
+    @TargetApi(21)
     private void showAboutDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.about_title).setView(R.layout.dialog_about);
+        builder.setTitle(R.string.about_title);
+        try {
+            builder.setView(R.layout.dialog_about);
+        } catch (Exception e) {
+            builder.setMessage(R.string.about_message);
+        }
         builder.create().show();
     }
 
