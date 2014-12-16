@@ -18,5 +18,7 @@
     <string name="guess_number_button">确定</string>
     <string name="action_show_formula">显示公式</string>
     <string name="show_formula_title">公式…</string>
+    <string name="logo_description">图标</string>
+    <string name="about_copyright">Copyright (c) 2014</string>
 
 </resources>

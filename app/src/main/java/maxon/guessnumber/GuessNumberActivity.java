@@ -162,7 +162,7 @@ public class GuessNumberActivity extends ActionBarActivity {
 
     private void showAboutDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.about_title).setMessage(R.string.about_message);
+        builder.setTitle(R.string.about_title).setView(R.layout.dialog_about);
         builder.create().show();
     }
 

@@ -18,5 +18,7 @@
     <string name="guess_number_button">Ok</string>
     <string name="action_show_formula">Show formula</string>
     <string name="show_formula_title">The formula...</string>
+    <string name="logo_description">The logo</string>
+    <string name="about_copyright">Copyright (c) 2014</string>
 
 </resources>
