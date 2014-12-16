@@ -33,6 +33,8 @@ public class GuessNumberActivity extends ActionBarActivity {
     // the stopwatch monitor.
     private Stopwatch stopwatch = new Stopwatch();
 
+    private int difficulty;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,11 +176,24 @@ public class GuessNumberActivity extends ActionBarActivity {
     }
 
     private void showSettings() {
-        // TODO no settings at present.
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.action_settings);
+        builder.setSingleChoiceItems(R.array.difficulty_choices, difficulty, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                difficulty = which;
+            }
+        });
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        builder.create().show();
     }
 
     private void nextNumbers() {
-        expression = Expression.generate();
+        expression = Expression.generate(difficulty);
 
         try {
             for (int i = 0; i < numberTextViews.length; i++) {

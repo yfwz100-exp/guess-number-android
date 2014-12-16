@@ -40,8 +40,8 @@ public class Expression {
         }
     }
 
-    public static Expression generate() {
-        return new Expression();
+    public static Expression generate(int difficulty) {
+        return new Expression(difficulty + 2);
     }
 
     @Override
