@@ -1,6 +1,7 @@
 package maxon.guessnumber;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
@@ -106,24 +107,24 @@ public class GuessNumberActivity extends ActionBarActivity {
         builder.create().show();
     }
 
-    protected void guessNumber() {
+    protected boolean isGuessNumberCorrect() {
         if (expression != null) {
-            int number;
-            try {
-                number = Integer.parseInt(numberInput.getText().toString());
-            } catch (NumberFormatException e) {
-                showErrDialog(e);
-                return;
-            }
-            if (number == expression.getAt(6)) {
+            int number = Integer.parseInt(numberInput.getText().toString());
+            return number == expression.getAt(6);
+        } else {
+            throw new RuntimeException("Unexpected null expression.");
+        }
+    }
+
+    protected void guessNumber() {
+        try {
+            if (isGuessNumberCorrect()) {
                 showWinDialog(((int) stopwatch.stop() / 1000));
-                nextNumbers();
             } else {
                 showWrongAnswerDialog();
             }
-            numberInput.setText("");
-        } else {
-            throw new RuntimeException("Unexpected null expression.");
+        } catch (NumberFormatException ex) {
+            showErrDialog(ex);
         }
     }
 
@@ -137,12 +138,25 @@ public class GuessNumberActivity extends ActionBarActivity {
     private void showWinDialog(int seconds) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.win_title).setMessage(String.format(getString(R.string.win_message), seconds));
+        builder.setPositiveButton(R.string.action_next_numbers, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                numberInput.setText("");
+                nextNumbers();
+            }
+        });
         builder.create().show();
     }
 
     private void showWrongAnswerDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.wrong_answer_title).setMessage(R.string.wrong_answer_message);
+        builder.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                numberInput.setText("");
+            }
+        });
         builder.create().show();
     }
 
@@ -164,6 +178,7 @@ public class GuessNumberActivity extends ActionBarActivity {
                 numberTextViews[i].setText(String.valueOf(expression.getAt(i + 1)));
 
                 Animation animation = AnimationUtils.loadAnimation(this, R.anim.number_translation);
+                animation.setDuration(i * 800);
                 numberTextViews[i].startAnimation(animation);
             }
         } catch (Exception ex) {
