@@ -236,7 +236,7 @@ public class Expression {
 
         @Override
         public String toString() {
-            return String.format("pow(%d, %d)", a.compute(), b.compute());
+            return String.format("pow(%s, %s)", a.toString(), b.toString());
         }
     }
 
