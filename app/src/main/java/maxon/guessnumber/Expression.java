@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class Expression {
 
-    private IntExprNode variable;
+    private VarIntExprNode variable;
     private ExprNode root;
 
     public Expression() {
@@ -18,7 +18,7 @@ public class Expression {
 
     public Expression(int number) {
         Random random = new Random();
-        root = variable = new IntExprNode(1);
+        root = variable = new VarIntExprNode();
         for (int i = 0; i < number; i++) {
             switch (random.nextInt(5)) {
                 case 0:
@@ -60,10 +60,27 @@ public class Expression {
 
     protected class IntExprNode implements ExprNode {
 
-        private int value;
+        protected int value;
 
         public IntExprNode(int i) {
             value = i;
+        }
+
+        @Override
+        public int compute() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+    }
+
+    protected class VarIntExprNode extends IntExprNode {
+
+        public VarIntExprNode() {
+            super(0);
         }
 
         public int getValue() {
@@ -75,13 +92,8 @@ public class Expression {
         }
 
         @Override
-        public int compute() {
-            return value;
-        }
-
-        @Override
         public String toString() {
-            return String.valueOf(value);
+            return "i";
         }
     }
 
