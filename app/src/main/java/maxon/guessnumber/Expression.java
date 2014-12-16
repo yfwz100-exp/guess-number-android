@@ -51,7 +51,6 @@ public class Expression {
 
     public int getAt(int i) {
         variable.setValue(i);
-        System.out.println(root);
         return root.compute();
     }
 
@@ -94,6 +93,10 @@ public class Expression {
             this.nodes = nodes;
         }
 
+        @Override
+        public String toString() {
+            return "f(nodes)";
+        }
     }
 
     protected class PlusExprNode extends AbstractArrayExprNode {
@@ -217,6 +220,11 @@ public class Expression {
         @Override
         public int compute() {
             return ((int) Math.pow(a.compute(), b.compute()));
+        }
+
+        @Override
+        public String toString() {
+            return String.format("pow(%d, %d)", a.compute(), b.compute());
         }
     }
 
