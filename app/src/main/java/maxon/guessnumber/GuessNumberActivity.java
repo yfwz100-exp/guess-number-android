@@ -1,11 +1,11 @@
 package maxon.guessnumber;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -163,16 +163,12 @@ public class GuessNumberActivity extends ActionBarActivity {
         builder.create().show();
     }
 
-    @TargetApi(21)
     private void showAboutDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.about_title);
-        try {
-            builder.setView(R.layout.dialog_about);
-        } catch (Exception e) {
-            builder.setMessage(R.string.about_message);
-        }
+        LayoutInflater inflater = getLayoutInflater();
+        builder.setView(inflater.inflate(R.layout.dialog_about, null));
         builder.create().show();
+
     }
 
     private void showSettings() {
@@ -182,11 +178,6 @@ public class GuessNumberActivity extends ActionBarActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 difficulty = which;
-            }
-        });
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
             }
         });
         builder.create().show();

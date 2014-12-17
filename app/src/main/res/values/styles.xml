@@ -1,18 +1,11 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-    </style>
-
-    <style name="AppTheme.NumberDisplay">
-        <!--<item name="android:background">-->
-            <!--<shape android:shape="rectangle" >-->
-                <!--<solid android:color="#0cf" />-->
-                <!--<stroke android:width="2dp" android:color="#000" />-->
-                <!--<corners android:radius="10dp" />-->
-            <!--</shape>-->
-        <!--</item>-->
+        <item name="colorPrimary">#fc0</item>
+        <item name="colorPrimaryDark">#eb2</item>
+        <item name="colorAccent">#eb2</item>
     </style>
 
 </resources>

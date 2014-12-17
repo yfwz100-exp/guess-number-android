@@ -3,7 +3,7 @@
 
     <string name="app_name">神奇数列</string>
     <string name="action_settings">设置</string>
-    <string name="guess_number_title">数列下一个数字是什么？</string>
+    <string name="guess_number_title">下一个数字是什么？</string>
     <string name="action_next_numbers">下一组数列</string>
     <string name="action_about">关于此软件</string>
     <string name="about_title">关于</string>
@@ -13,12 +13,13 @@
     <string name="win_title">太棒了！</string>
     <string name="win_message">只用了 %d 秒就解出了此数列。</string>
     <string name="wrong_answer_title">很遗憾…</string>
-    <string name="wrong_answer_message">好像不对，重新尝试一下吧 :-P 。</string>
+    <string name="wrong_answer_message">好像不对，重新尝试一下吧 :-P </string>
     <string name="initial_number_placeholder">…</string>
     <string name="guess_number_button">确定</string>
     <string name="action_show_formula">显示公式</string>
     <string name="show_formula_title">公式…</string>
     <string name="logo_description">图标</string>
     <string name="about_copyright">Copyright © 2014</string>
+    <string name="guess_number_hint">下一个数字…</string>
 
 </resources>

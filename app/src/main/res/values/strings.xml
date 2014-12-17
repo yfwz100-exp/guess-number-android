@@ -20,4 +20,5 @@
     <string name="show_formula_title">The formula…</string>
     <string name="logo_description">The logo</string>
     <string name="about_copyright">Copyright © 2014</string>
+    <string name="guess_number_hint">The next number…</string>
 </resources>
