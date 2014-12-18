@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,7 +40,7 @@ public class GuessNumberActivity extends ActionBarActivity {
         setContentView(R.layout.activity_guess_number);
         setTitle(R.string.guess_number_title);
 
-        numberTextViews = new TextView[] {
+        numberTextViews = new TextView[]{
                 ((TextView) findViewById(R.id.number1)),
                 ((TextView) findViewById(R.id.number2)),
                 ((TextView) findViewById(R.id.number3)),
@@ -168,7 +166,6 @@ public class GuessNumberActivity extends ActionBarActivity {
         LayoutInflater inflater = getLayoutInflater();
         builder.setView(inflater.inflate(R.layout.dialog_about, null));
         builder.create().show();
-
     }
 
     private void showSettings() {
@@ -190,9 +187,9 @@ public class GuessNumberActivity extends ActionBarActivity {
             for (int i = 0; i < numberTextViews.length; i++) {
                 numberTextViews[i].setText(String.valueOf(expression.getAt(i + 1)));
 
-                Animation animation = AnimationUtils.loadAnimation(this, R.anim.number_translation);
-                animation.setDuration(i * 800);
-                numberTextViews[i].startAnimation(animation);
+                numberTextViews[i].setAlpha(0);
+                numberTextViews[i].setTranslationX(-(i == 0 ? 0 : 1) * numberTextViews[i].getWidth());
+                numberTextViews[i].animate().setStartDelay(i * 500).setDuration(500).translationX(0).alpha(1f);
             }
         } catch (Exception ex) {
             showErrDialog(ex);
