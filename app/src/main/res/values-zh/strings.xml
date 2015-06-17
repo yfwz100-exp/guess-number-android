@@ -19,7 +19,7 @@
     <string name="action_show_formula">显示公式</string>
     <string name="show_formula_title">公式…</string>
     <string name="logo_description">图标</string>
-    <string name="about_copyright">Copyright © 2014</string>
+    <string name="about_copyright">Copyright © 2014 重庆旭恒天辰信息技术有限公司</string>
     <string name="guess_number_hint">下一个数字…</string>
 
 </resources>

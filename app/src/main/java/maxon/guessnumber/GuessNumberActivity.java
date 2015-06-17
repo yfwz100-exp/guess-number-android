@@ -3,7 +3,7 @@ package maxon.guessnumber;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,7 +19,7 @@ import android.widget.TextView;
  *
  * @author yfwz100
  */
-public class GuessNumberActivity extends ActionBarActivity {
+public class GuessNumberActivity extends AppCompatActivity {
 
     // UI components.
     private TextView[] numberTextViews;
